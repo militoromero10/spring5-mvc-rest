@@ -2,6 +2,7 @@ package com.milo.rest.controller;
 
 import com.milo.rest.api.v1.model.CategoryDTO;
 import com.milo.rest.service.CategoryService;
+import com.milo.rest.service.ResourceNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -36,7 +37,9 @@ class CategoryControllerTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.initMocks(this);
-        mockMvc = MockMvcBuilders.standaloneSetup(categoryController).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(categoryController)
+                .setControllerAdvice(new RestResponseEntityExceptionHandler())
+                .build();
     }
 
     @Test
@@ -53,7 +56,7 @@ class CategoryControllerTest {
 
         when(categoryService.getAllCategories()).thenReturn(categories);
 
-        mockMvc.perform(get("/api/v1/categories/")
+        mockMvc.perform(get(CategoryController.BASE_URL)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.categories", hasSize(2)));
@@ -67,9 +70,20 @@ class CategoryControllerTest {
 
         when(categoryService.getCategoryByName(anyString())).thenReturn(category1);
 
-        mockMvc.perform(get("/api/v1/categories/Camilo")
+        mockMvc.perform(get(CategoryController.BASE_URL+"/Camilo")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name", equalTo(NAME)));
     }
+
+    @Test
+    public void testGetByNameNotFound() throws Exception {
+
+        when(categoryService.getCategoryByName(anyString())).thenThrow(ResourceNotFoundException.class);
+
+        mockMvc.perform(get(CategoryController.BASE_URL + "/Foo")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound());
+    }
+
 }
