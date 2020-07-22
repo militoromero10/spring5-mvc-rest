@@ -1,7 +1,7 @@
 package com.milo.rest.controller;
 
 import com.milo.rest.api.v1.model.CategoryDTO;
-import com.milo.rest.domain.CategoryListDTO;
+import com.milo.rest.api.v1.model.CategoryListDTO;
 import com.milo.rest.service.CategoryService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
