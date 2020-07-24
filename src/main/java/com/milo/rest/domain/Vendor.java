@@ -1,5 +1,6 @@
 package com.milo.rest.domain;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import javax.persistence.Entity;
@@ -15,5 +16,6 @@ public class Vendor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ApiModelProperty(value = "Name of the Vendor", required = true)
     private String name;
 }
