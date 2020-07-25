@@ -3,3 +3,6 @@
 [![codecov](https://codecov.io/gh/militoromero10/spring5-mvc-rest/branch/develop/graph/badge.svg)](https://codecov.io/gh/militoromero10/spring5-mvc-rest)
 # Spring Framework 5 MVC Rest Application
 #This repository is for an example application built in my Spring Framework 5
+
+#Swagger Documentataion
+- /swagger-ui.html
