@@ -1,6 +1,6 @@
 package com.milo.rest.service;
 
-import com.milo.rest.api.v1.model.CustomerDTO;
+import com.milo.rest.model.CustomerDTO;
 
 import java.util.List;
 

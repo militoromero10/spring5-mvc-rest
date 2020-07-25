@@ -1,11 +1,11 @@
-package com.milo.rest.api.v1.mapper;
+package com.milo.rest.mapper;
 
-import com.milo.rest.api.v1.model.CustomerDTO;
 import com.milo.rest.domain.Customer;
-import org.junit.jupiter.api.BeforeEach;
+import com.milo.rest.model.CustomerDTO;
+import com.milo.rest.api.v1.mapper.CustomerMapper;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
 
 class CustomerMapperTest {
 

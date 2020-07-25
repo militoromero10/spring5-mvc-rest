@@ -6,3 +6,6 @@
 
 #Swagger Documentataion
 - /swagger-ui.html
+# JAXB
+- `mvn package` procesa tambien XSD (customer.xsd) en POJO's necesarios
+-  https://www.freeformatter.com/xsd-generator.html poner XML y generar Venetian Blind -> customer.xsd

@@ -1,7 +1,7 @@
 package com.milo.rest.controller;
 
-import com.milo.rest.api.v1.model.CustomerDTO;
-import com.milo.rest.api.v1.model.CustomerListDTO;
+import com.milo.rest.model.CustomerDTO;
+import com.milo.rest.model.CustomerListDTO;
 import com.milo.rest.service.CustomerService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -24,7 +24,9 @@ public class CustomerController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public CustomerListDTO getListofCustomers(){
-        return new CustomerListDTO(customerService.getAllCustomers());
+        CustomerListDTO customerListDTO = new CustomerListDTO();
+        customerListDTO.getCustomers().addAll(customerService.getAllCustomers());
+        return customerListDTO;
     }
 
     @ApiOperation(value = "This will get a customer.", notes = "These are some notes about the API.")
@@ -38,7 +40,8 @@ public class CustomerController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public CustomerDTO createNewCustomer(@RequestBody CustomerDTO customerDTO){
-        return customerService.createNewCustomer(customerDTO);
+        CustomerDTO newCustomer = customerService.createNewCustomer(customerDTO);
+        return newCustomer;
     }
 
     @PutMapping({"/{id}"})

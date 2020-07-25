@@ -1,7 +1,7 @@
 package com.milo.rest.service.impl;
 
+import com.milo.rest.model.CustomerDTO;
 import com.milo.rest.api.v1.mapper.CustomerMapper;
-import com.milo.rest.api.v1.model.CustomerDTO;
 import com.milo.rest.controller.CustomerController;
 import com.milo.rest.domain.Customer;
 import com.milo.rest.respository.CustomerRepository;

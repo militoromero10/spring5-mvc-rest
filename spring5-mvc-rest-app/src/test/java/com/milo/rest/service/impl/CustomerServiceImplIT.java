@@ -1,18 +1,15 @@
 package com.milo.rest.service.impl;
 
-import com.milo.rest.api.v1.mapper.CustomerMapper;
-import com.milo.rest.api.v1.model.CustomerDTO;
 import com.milo.rest.boostrap.Bootstrap;
 import com.milo.rest.domain.Customer;
+import com.milo.rest.model.CustomerDTO;
 import com.milo.rest.respository.CategoryRepository;
 import com.milo.rest.respository.CustomerRepository;
 import com.milo.rest.respository.VendorRepository;
 import com.milo.rest.service.CustomerService;
+import com.milo.rest.api.v1.mapper.CustomerMapper;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 
