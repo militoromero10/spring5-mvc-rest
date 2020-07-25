@@ -28,8 +28,8 @@ import static org.mockito.Mockito.*;
 /**
  * Created by jt on 10/3/17.
  */
-@RunWith(SpringRunner.class)
-@DataJpaTest
+//@RunWith(SpringRunner.class)
+//@DataJpaTest
 public class CustomerServiceImplIT {
 
     @Autowired
